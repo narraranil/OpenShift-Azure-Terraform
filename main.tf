@@ -19,7 +19,9 @@ resource "azurerm_storage_account" "osstorageregistry" {
   resource_group_name = "${azurerm_resource_group.osrg.name}"
   depends_on          = ["azurerm_resource_group.osrg"]
   location            = "${azurerm_resource_group.osrg.location}"
-  account_type        = "Standard_LRS"
+ # account_type        = "Standard_LRS"
+   account_tier          = "Standard"
+  account_replication_type = "LRS"
 }
 
 resource "azurerm_storage_account" "osstoragepv" {
@@ -27,5 +29,6 @@ resource "azurerm_storage_account" "osstoragepv" {
   resource_group_name = "${azurerm_resource_group.osrg.name}"
   depends_on          = ["azurerm_resource_group.osrg"]
   location            = "${azurerm_resource_group.osrg.location}"
-  account_type        = "Standard_LRS"
+  account_tier          = "Standard"
+  account_replication_type = "LRS"
 }
